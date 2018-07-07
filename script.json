@@ -1,0 +1,31 @@
+{
+  "width": 500,
+  "height": 300,
+  "data": {
+    "url": "https://raw.githubusercontent.com/ericapereira/Social_Justice_Chicago/master/chicago.json",
+    "format": {
+      "type": "topojson",
+      "feature": ""
+    }
+  },
+  "transform": [{
+    "lookup": "id",
+    "from": {
+      "data": {
+        "url": "https://raw.githubusercontent.com/ericapereira/Social_Justice_Chicago/master/data1.csv"
+      },
+      "key": "id",
+      "fields": ["Age"]
+    }
+  }],
+  "projection": {
+    "type": "mercator"
+  },
+  "mark": "geoshape",
+  "encoding": {
+    "color": {
+      "field": "Age",
+      "type": "quantitative"
+    }
+  }
+}
