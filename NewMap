@@ -1,0 +1,40 @@
+{
+  "width": 500,
+  "height": 300,
+  "data": {
+    "name": "base",
+    "url": "https://raw.githubusercontent.com/ericapereira/Social_Justice_Chicago/master/chicagogeo.geojson",
+    "format": {
+      "property": "features"
+    }
+  },
+  "projection": {
+    "type": "mercator"
+  },
+  "transform":[
+    {
+    "lookup": "id",
+     "from": {
+        "data": {
+          "name": "ages",
+          "format": {
+            "type": "tsv"
+          },
+          "url": "https://raw.githubusercontent.com/ericapereira/Social_Justice_Chicago/master/data.tsv"
+        },
+        "key": "area_numbe",
+        "fields": [
+          "Age"
+        ]
+     }
+    }
+  ],
+  "mark": "geoshape",
+   "encoding": {
+    "color": {
+      "field": "Age",
+      "type": "quantitative"
+    }
+   },
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json"
+}
